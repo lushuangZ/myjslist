@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrapper{
+            width: 200px;
+            height: 200px;
+            background-color: cornflowerblue;
+        }
+        .wrapper .content {
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            margin-left: 250px;
+        }
+        .wrapper .content .box {
+            width: 50px;
+            height:50px;
+            background-color: crimson;
+            margin-left: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="content">
+            <div class="box"></div>
+        </div>
+    </div>
+    <script>
+        // 冒泡
+    var oWrapper = document.getElementsByClassName('wrapper') [0];
+    var oContent = document.getElementsByClassName('content') [0];
+    var oBox = document.getElementsByClassName('box')[0];
+    function wrapper () {
+        console.log('wrapper');
+    }
+    function content () {
+        console.log('content');
+    }
+    function box () {
+        console.log('box');
+    }
+    oWrapper.addEventListener('click',wrapper,false);
+    oContent.addEventListener('click',content,false);
+    oBox.addEventListener('click',box,false);
+    // 捕获
+    function wrapperCapture () {
+        console.log('wrapper');
+    }
+    function contentCapture () {
+        console.log('content');
+    }
+    function boxCapture () {
+        console.log('box');
+    }
+    oWrapper.addEventListener('click',wrapperCapture,true);
+    oContent.addEventListener('click',contentCapture,true);
+    oBox.addEventListener('click',boxCapture,true);
+    // 先捕获后冒泡
+    function wrapperCapture () {
+        console.log('wrapper');
+    }
+    function contentCapture () {
+        console.log('content');
+    }
+    function boxCapture () {
+        console.log('box');
+    }
+    oWrapper.addEventListener('click',wrapperCapture,false);
+    oContent.addEventListener('click',contentCapture,true);
+    oBox.addEventListener('click',boxCapture,false);
+    </script>
+</body>
+</html>

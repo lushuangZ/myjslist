@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+      *{
+          padding: 0px;
+          margin: 0px;
+          text-decoration: none;
+          width: 100%;
+          }
+          .wrapper {
+              padding: 10px 15px;
+              border :1px solid #ccc;
+              width: 500px;
+              border-radius: 6px;
+              margin-top: 100px;
+              margin-right: auto;
+              margin-left: auto;
+              margin-bottom: opx;
+
+          }
+          .wrapper .part {
+              padding-bottom: 10px;
+              margin-bottom: 20px;
+              border-bottom: 1px solid #ccc;
+          }
+          .wrapper .part span {
+              color: #bbb;
+              margin-right: 10px;          }
+          .wrapper .part a{
+              margin-right: 20px;
+          }
+          .wrapper .part .active{
+              padding: 4px 6px;
+              color: #fff;
+              background-color: #f40;
+          }
+          .wrapper .content .box {
+              display: none;
+              height: 200px;
+              text-align: center;
+              line-height: 200px;
+              font-size: 25px;
+              font-weight: 700;
+              color: #0ff;
+          }
+          .wrapper .content .active {
+              display: block;
+          }
+    </style>
+</head>
+<body>
+     <div class="wrapper">
+         <div class="part">
+         <span>地区</span>
+         <a href="#" class="active">大陆</a>
+         <a href="#">日韩</a>
+         <a href="#">香港</a>
+         <a href="#">欧美</a>
+        </div>
+         <div class="content">
+             <div class="box active">白敬亭</div>
+             <div class="box">小栗旬</div>
+             <div class="box">邓紫棋</div>
+             <div class="box">比伯</div>
+         </div>
+     </div>
+    <script>
+    var oBtnArray = document.getElementsByTagName('a');
+    var oDivArray = document.getElementsByClassName('box')
+    var lastActiveBtn = oBtnArray[0];
+    var lastActiveDiv = oDivArray[0];
+     for (var i = 0;i < oBtnArray.length;i++) {
+         (function (_Index) {
+            oBtnArray[_Index].onclick = function () {
+                   changeBtnStatus(_Index);
+                   changeDivStatus(_Index);
+            }
+         }) (i);
+     }
+     function changeBtnStatus (index) {
+         lastActiveBtn.className = '';
+         oBtnArray[index].className = 'active';
+         lastActiveBtn = oBtnArray[index];
+     }
+     function changeDivStatus (index) {
+         lastActiveDiv.className = 'box';
+         oDivArray[index].className = 'box active';
+         lastActiveDiv = oDivArray[index];
+     }
+
+
+    </script>
+</body>
+</html>
