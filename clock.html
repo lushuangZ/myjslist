@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>clock</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrapper {
+            width: 400px;
+            height: 40px;
+            background-color: #00f;
+            margin: 10px auto;
+        }
+
+        span {
+            line-height: 41px;
+            width: 80px;
+            height: 30px;
+            margin: 0px 14px;
+            padding: 6px 35px;
+            background-color: azure;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="tigger">
+                <span id="hour"></span>时
+                <span id="minute"></span>分
+                <span id="second"></span>秒
+        </div>
+    </div>
+</body>
+<script>
+    var date = new Date();
+    setInterval(time, 1000)
+    function time() {
+        var date = new Date();
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var seconds = date.getSeconds();
+        hour.innerHTML = hours;
+        minute.innerHTML =minutes;
+        second.innerHTML = seconds
+    }
+    time()
+    // function show() {
+    //     time();
+    //     $tigger = document.createElement('div')
+    //     $tigger.className = 'tigger'
+    //     var oSpan = '<span id="hour">' + hour + '</span>时<span id="month">' + minute + '</span>分<span id="second">' + second + '</span>秒'
+    //     $tigger.innerHTML = oSpan;
+    //     wrapper.appendChild($tigger)
+    // }
+    show();
+
+</script>
+
+</html>

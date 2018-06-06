@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>change</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .wrapper {
+            width: 50%;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        .name {
+            width: 50%;
+            padding: 5px;
+            margin: 0 auto;
+        }
+
+        .value {
+            width: 50%;
+            padding: 5px;
+            margin: 0 auto;
+        }
+
+        .item {
+            width: 50%;
+            padding: 5px;
+            margin: 0 auto;
+        }
+
+        button {
+            padding: 5px;
+            margin-left: 50px;
+        }
+        .main{
+            color:#fff;width:180px;
+            height:180px;
+            background:#000;
+            margin-left: 163px;
+            padding:10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="name ">
+            <span>属性名</span>
+            <input type="text"  value="background">
+        </div>
+        <div class="value">
+            <span>属性值</span>
+            <input type="text" value="black">
+        </div>
+        <div class="item">
+            <button>改变</button>
+            <button>重置</button>
+        </div>
+        <div class="main">输入你想改变的属性名及属性值</div>
+        <script>
+            var changeStyle = function (elem, name, value) {
+                elem.style[name] = value;
+            }
+            window.onload = function () {
+                var oDiv = document.getElementsByClassName("main")[0]
+                var oBtn = document.getElementsByTagName('button')
+                var onInput = document.getElementsByTagName('input');
+                oBtn[0].onclick = function () {
+                    changeStyle(oDiv, onInput[0].value, onInput[1].value)
+                }
+                oBtn[1].onclick = function () {
+                    oDiv.removeAttribute('style')
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>

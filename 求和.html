@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>求和</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .item {
+            width: 100%;
+            height: 100%;
+            /* margin: 0 auto; */
+        }
+
+        .dome {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        .dome span {
+            color: #aaa;
+            font-size: 16px;
+            margin-top: 2px;
+        }
+
+        .sum {
+            width: 50%;
+            margin: 0 auto;
+            padding-top: 2px;
+
+        }
+        .all {
+            width: 50%;
+            margin: 0 auto;
+            padding-top: 2px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="item">
+        <div class="dome">
+            <input id="iNp" type="text" value="请输入数字">
+            <span>请输入数字，中间用半角,分开</span>
+        </div>
+        <div class="sum">
+            <button>求和</button>
+        </div>
+        <div class="all">
+            
+        </div>
+    </div>
+    <script>
+        // window.onload = function () {
+            var oBtn = document.getElementsByTagName('button')[0];
+            iNp.onkeyup = function () {
+                // 正则表达式以数字开头中间用逗号分开
+                this.value = this.value.replace(/[^(\d)|(,)]/, "")
+            }
+            oBtn.onclick = function () {
+                var sum = 0;
+                // split方法用于把一个字符串分割成字符串数组
+                var oInput = iNp.value.split(',')
+                console.log(oInput)
+                // 对应于一个对象的每个，或一个数组的每一个元素，执行一个或多个语句
+                for (var i in oInput) {
+                    // parseint 求和
+                    sum += parseInt(oInput[i])
+                    var str = '<p>' + sum + '</p>'
+                    console.log(str)
+                }
+                document.getElementsByClassName('all')[0].innerHTML = str
+            }
+
+        // }
+
+    </script>
+
+
+</body>
+
+</html>
