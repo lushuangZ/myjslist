@@ -1,55 +1,68 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>baidu</title>
-<link rel="stylesheet"  href="./1.css">
-</head>
-<body>
-	<div class="s">
-		<ul>
-			<li><a class="more" href="#">更多产品</a></li>
-			<li ><a  class="she" href="#">设置</a></li>
-			<li><a  class="she" href="#">登录</a></li>
-			<li><a href="#">贴吧</a></li>
-			<li><a href="#">视频</a></li>
-			<li><a href="#">地图</a></li>
-			<li><a href="#">好123</a></li>
-			<li><a href="#">糯米</a></li>
-			<li><a href="#">新闻</a></li>
-		</ul>
-	</div>
-	<!-- 中间 -->
-	<div class="z">
-		<div class="tu">
-		    <img src="./img/baidu.png"  width="250px"></img>
-		</div>
-		<div class="hang">
-			<input type="text"/><span><a href="#">百度一下</a></span>
-		</div>
-	</div>
-	<!-- 后面 -->
-	<div class="x">
-		<div class="shou">
-		<img src="./img/er.png" width="50px"></img>
-		<p>手机百度</p>
-		</div>
-		<ul>
-			<li><a href="#">把百度设为主页</a></li>
-			<li><a href="#">关于百度</a></li>
-			<li><a href="#">About Baibu</a></li>
-			<li><a href="#">百度推广</a></li>
-		</ul>
-		<div class="hou">
-		<span>@2007</span>
-		<span >baidu</span>
-		<span ><a href="#">使用百度前必读</a></span>
-		<span><a href="#">意见反馈</a></span>
-		<span>京ICP证030173</span>
-		<img src="./img/1.png" width="20px">
-		<span><a href="#">京公网安备11000002000001号</a></span>
-		<img src="./img/2.png" width="20px">
-	</div>
-	</div>
-</div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    .wrapper{
+        position: absolute;
+        margin: 0 20px;
+        left: 50%;
+        margin-left: -260px;
+        top: 100px;
+
+    }
+    .wrapper #btn{
+        position: relative;
+        width: 100px;
+        height: 30px;
+
+    }
+    .weather{
+        width: 200px;
+        height: 300px;
+        margin-top: 10px;
+        border: 1px solid #aaa;
+    }
+    ul{
+        width: 200px;
+    }
+    </style>
+ <body>
+    <div class='wrapper'>
+    <input type="text" id="btn">
+    <div class="weather">
+        <ul></ul>
+    </div>
+    </div>
+
+    <script>
+        var oUl = document.getElementsByTagName('ul')[0];
+        btn.onblur = function () {
+            var value = this.value;
+            console.log(value)
+            var oScript = document.createElement('script');
+            document.body.appendChild(oScript);
+            oScript.src = 'http://wthrcdn.etouch.cn/weather_mini?city='+ value +'&callback=ds';
+            document.body.removeChild(oScript);
+        }
+        function ds(res) {
+            oUl.style.display = 'block';
+            console.log(res);
+            var list = res.data
+            var str = '';
+            str += '<li>城市：' + list.city + '</li>'
+            str += '<li>温度：' + list.wendu + '</li>'            
+            oUl.innerHTML = str;
+        }
+
+    </script>
 </body>
 </html>
